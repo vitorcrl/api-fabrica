@@ -1,8 +1,8 @@
 const express = require("express");
 
 class AppController {
-    constroctor() {
-        this.express = express;
+    constructor() {
+        this.express = express();
 
         this.middlewares();
         this.routes();
