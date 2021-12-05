@@ -1,8 +1,7 @@
 "use strict";
-
 module.exports = {
     up: async (queryInterface, Sequelize) => {
-        return queryInterface.createTable("users", {
+        return queryInterface.createTable("register-items", {
             id: {
                 type: Sequelize.INTEGER,
                 primaryKey: true,
@@ -10,17 +9,16 @@ module.exports = {
                 //   generationStrategy: Sequelize.UUID,
                 allowNull: false,
             },
-            user: {
+            name: {
                 type: Sequelize.STRING,
                 isUnique: true,
                 allowNull: false,
             },
-            //  password: {
-            //          type: Sequelize.STRING,
-            //          isUnique: true,
-            //          allowNull: false,
-            //      },
-            password_hash: {
+            quantity: {
+                type: Sequelize.NUMBER,
+                allowNull: false,
+            },
+            user: {
                 type: Sequelize.STRING,
                 allowNull: false,
             },
@@ -36,7 +34,7 @@ module.exports = {
     },
 
     down: async (queryInterface, Sequelize) => {
-        return queryInterface.dropTable("users");
+        return queryInterface.dropTable("register-items");
 
         /**
          * Add reverting commands here.
